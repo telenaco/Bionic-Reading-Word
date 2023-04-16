@@ -1,0 +1,38 @@
+Sub BoldFirstHalfOfWords()
+    ' Get the selected text
+    Dim selectedText As Range
+    Set selectedText = Selection.Range
+    
+    ' Remove any existing bold formatting
+    selectedText.Font.Bold = False
+    
+    ' Initialize variables
+    Dim wordStart As Integer
+    Dim wordEnd As Integer
+    Dim wordLength As Integer
+    Dim halfWordLength As Integer
+    Dim currentChar As Integer
+    
+    wordStart = 1
+    For currentChar = 1 To Len(selectedText.text)
+        Dim currentCharacter As String
+        currentCharacter = Mid(selectedText.text, currentChar, 1)
+        
+        ' If the character is a space or the end of the selection, process the word
+        If currentCharacter = " " Or currentChar = Len(selectedText.text) Then
+            wordEnd = currentChar - 1
+            wordLength = wordEnd - wordStart + 1
+            halfWordLength = wordLength / 2
+            
+            ' Apply bold formatting to the first half of the word
+            Dim i As Integer
+            For i = wordStart To wordStart + halfWordLength - 1
+                selectedText.Characters(i).Font.Bold = True
+            Next i
+            
+            ' Set the start of the next word
+            wordStart = currentChar + 1
+        End If
+    Next currentChar
+End Sub
+
