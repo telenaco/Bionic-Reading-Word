@@ -2,7 +2,7 @@
 
 This VBA script is designed for Microsoft Word to apply bold formatting to the first half of each word within the selected text. The script does not consider any special characters, brackets, parentheses, or numerical values.
 
-Usage
+## Usage
 Open Microsoft Word.
 Press ALT + F11 to open the Visual Basic for Applications (VBA) editor.
 Click on "Insert" from the menu bar and select "Module" to insert a new module.
@@ -12,3 +12,6 @@ In your Word document, select the text you want to apply the bold formatting to.
 Press ALT + F8 to open the "Macro" dialog box.
 Select the macro named "BoldFirstHalfOfWords" and click "Run".
 The script will apply bold formatting to the first half of each word within the selected text.
+
+## Limitations
+The code is designed to work with plain text and does not consider any special characters, brackets, parentheses, or numerical values.
